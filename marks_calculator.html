@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Marks Calculator</title>
+        <style>
+            body{
+                background-color:rgb(43, 127, 166);
+                font-family:'Times New Roman', Times, serif;
+                color:black;
+            }
+            .calculator{
+                text-align:center;
+                background-color:rgb(251, 255, 194);
+                border-radius:10px;
+                padding:15px;
+                box-shadow: 0 0 16px;
+                margin:20px;
+            }
+            h1{
+                color:rgb(64, 161, 206);
+                margin-bottom:10px;
+            }
+            input{
+                width:80%;
+                padding:10px;
+                border-radius: 10px;
+                border:none;
+                margin-bottom:10px;
+                font-size: 1rem;
+                text-align:center;
+            }
+            button{
+                background-color:rgb(121, 255, 121);
+                border:none;
+                font-size:13.5px;
+                margin-bottom:7px;
+                padding:10px 20px;
+                border-radius:10px;
+                transition:0.3s ease;
+            }
+            button:hover{
+                background-color:rgb(94, 255, 94);
+                transform:scale(1.05)
+            }
+            .result{
+                background-color:rgb(64, 161, 206);
+                padding:20px;
+                border-radius:10px;
+                margin:10px;
+                font-size:20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="calculator">
+        <h1>Marks Calculator</h1>
+        <p>Enter your marks for all subjects to calculate your final grade:</p>
+        <input type="text" class="subject1" id="subject1" placeholder="First Subject" required>
+        <br>
+        <input type="text" class="subject2" id="subject2" placeholder="Second Subject" required>
+        <br>
+        <input type="text" class="subject3" id="subject3" placeholder="Third Subject" required>
+        <br>
+        <input type="text" class="subject4" id="subject4" placeholder="Fourth Subject" required>
+        <br>
+        <input type="text" class="subject5" id="subject5" placeholder="Fifth Subject" required>
+        <br>
+        <button class="calculate" id="calculate" onclick="calculatemarks()">Calculate</button>
+        <div class="result" id="results"> Your results will appear here:</div>
+        </div> 
+        <script>
+            function calculatemarks(){
+                const subject1=parseFloat(document.getElementById("subject1").value);
+                const subject2=parseFloat(document.getElementById("subject2").value);
+                const subject3=parseFloat(document.getElementById("subject3").value);
+                const subject4=parseFloat(document.getElementById("subject4").value);
+                const subject5=parseFloat(document.getElementById("subject5").value);
+                let total= subject1+subject2+subject3+subject4+subject5;
+                let percent= total / 5;
+                if (percent<=50){
+                    grade="F"
+                }
+                else if(percent>=51 && percent<60){
+                    grade="C"
+                }
+                else if(percent>=60 && percent<79){
+                    grade="B"
+                }
+                else if(percent >=80){
+                    grade="A"
+                };
+                document.getElementById("results").innerHTML=`
+                <b> Total Marks: </b>${total} <br>
+                <b>Percentage: </b>${percent}% <br>
+                <b>Letter Grade: </b>${grade}`;
+            }
+        </script>
+    </body>
+    <!-- operators:
+ 1. Arithmetic Operators (math)-->
+ <!-- addition 10+5 -->
+  <!-- subtraction 10-5 -->
+   <!-- multiplication 10 * 5 -->
+    <!-- division 10/5 -->
+     <!-- modulus 10%5=0 -->
+      <!-- exponent 2**3 -->
+       <!-- incrament ++ -->
+        <!-- dicrament -- -->
+<!-- Assign operators -->
+ <!-- = x=5-->
+  <!-- add an assign x+=5 -->
+   <!-- subtract and assign x-=2 -->
+    <!-- multiply and assign x*=2 -->
+     <!-- divide and assign x/=2 -->
+      <!-- modulus x%=4 -->
+<!-- Comparing operators -->
+ <!-- == 5 equal to 5=="5" -->
+  <!-- === 5==="5" -->
+   <!-- !=not equal 5!=4 -->
+    <!-- !==strictly not equal  -->
+     <!-- >greater than 5>4 -->
+      <!-- <less than 5<4 -->
+       <!-- >=greater than equal 10>=10-->
+        <!-- <=less than equal 5<=5 -->
+<!-- Logical operator-->
+ <!-- and operator && both must be there 5>3&&10>5-->
+  <!-- or operator || 5>8||10>5 -->
+   <!-- not operator !(5>8)-->
+<!-- if (condition){use} -->
+ <!-- if (condition){
+  if true run the code}else{if false run this}-->
+  <!-- .value
+This takes the text typed inside that input box.
+If the user typed "12.5", then
+document.getElementById('a').value → "12.5"
+(It's a string, not a number.) -->
+<!-- parseFloat(...)
+Converts a string into a decimal number.
+
+"12.5" → 12.5
+
+"10" → 10
+
+"hello" → NaN (Not a Number) -->
+</html>
